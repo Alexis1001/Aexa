@@ -26,27 +26,19 @@ Route.group(() => {
   Route.get('user/all','UserController.index');
 
   
-  Route.post('user/add/bus','BusController.create');
-  
-  Route.put('user/update/status/bus/:id','BusController.updateStatus');
-  
-  Route.put('user/update/:id','BusController.update');
- 
-  Route.get('user/all','BusController.index');
- 
+  Route.get('user/bus/all','BusController.index');
+  Route.post('user/bus/add','BusController.create');
+  Route.put('user/bus/update/status/:id','BusController.updateStatus');
+  Route.put('user/bus/update/:id','BusController.update');
   Route.get('user/bus/:id','BusController.show');
 
+  
   Route.post('user/history','HistoryController.store');
-
   Route.get('user/history','HistoryController.index');
-
   Route.post('user/history/bus','HistoryController.indexByBus');
 
-  
   Route.post('user/venta','VentaController.store'); 
-
   Route.get('user/venta','VentaController.index'); 
-
   Route.post('user/ventas/bus','VentaController.indexByBus'); 
 
 
