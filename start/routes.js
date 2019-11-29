@@ -19,3 +19,36 @@ const Route = use('Route')
 Route.get('/', () => {
   return { greeting: 'Hello world in JSON' }
 })
+
+Route.group(() => {
+  Route.post('user/register','UserController.store');
+  Route.post('user/login','UserController.login');
+  Route.get('user/all','UserController.index');
+
+  
+  Route.post('user/add/bus','BusController.create');
+  
+  Route.put('user/update/status/bus/:id','BusController.updateStatus');
+  
+  Route.put('user/update/:id','BusController.update');
+ 
+  Route.get('user/all','BusController.index');
+ 
+  Route.get('user/bus/:id','BusController.show');
+
+  Route.post('user/history','HistoryController.store');
+
+  Route.get('user/history','HistoryController.index');
+
+  Route.post('user/history/bus','HistoryController.indexByBus');
+
+  
+  Route.post('user/venta','VentaController.store'); 
+
+  Route.get('user/venta','VentaController.index'); 
+
+  Route.post('user/ventas/bus','VentaController.indexByBus'); 
+
+
+}).prefix('api/v1/');
+
