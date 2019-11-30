@@ -13,7 +13,6 @@ class BusController {
     const bus=await Bus.all();
     return response.json({bus});
   }
-
   async create ({ request, response,auth}) {
     const user = await auth.getUser();
     const data=request.all();
@@ -73,12 +72,7 @@ class BusController {
       })
       await bus.save();
       return response.json({bus});
-    }
-    
-     
-  }
-
-  async store ({ request, response }) {
+    } 
   }
   async show ({ params, request, response,auth }) {
     const user = await auth.getUser();
@@ -86,16 +80,6 @@ class BusController {
     const bus=await Bus.find(id);
     return response.json({bus});
   }
-
-  async edit ({ params, request, response, view }) {
-  }
-
-  async update ({ params, request, response }) {
-  }
-
-  async destroy ({ params, request, response }) {
-  }
-
 
 
 }
