@@ -99,7 +99,7 @@ class BusController {
       priceBase:data.priceBase,
       totalPrice:data.totalPrice,
     })
-    await bus.save
+    await bus.save()
     
     return response.json({bus});
   }
