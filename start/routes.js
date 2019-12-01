@@ -31,7 +31,7 @@ Route.group(() => {
   Route.put('user/bus/update/status/:id','BusController.updateStatus');
   Route.put('user/bus/update/:id','BusController.update');
   Route.get('user/bus/:id','BusController.show');
-  Route.post('user/bus/edit/:id','BusController.updateBusAll');
+  Route.put('user/bus/edit/:id','BusController.updateBusAll');
 
   
   Route.post('user/history','HistoryController.store');
