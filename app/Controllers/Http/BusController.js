@@ -81,6 +81,31 @@ class BusController {
     return response.json({bus});
   }
 
+  async updateBusAll({auth,response,request,params}){
+    var id=params.id;
+    const data=request.all();
+    const bus=await Bus.find(id);
+    bus.merge({
+      nameBus:data.nameBus,
+      class:data.class,
+      status:data.status,
+      description:data.description,
+      time:data.time,
+      date:data.date,
+      departure:data.departure,
+      destination:data.destination,
+      totalSeats:data.totalSeats,
+      totalSeatsEspecialFree:data.totalSeatsEspecialFree,
+      priceBase:data.priceBase,
+      totalPrice:data.totalPrice,
+    })
+    await bus.save
+    
+    return response.json({bus});
+  }
+
+
+
 
 }
 
