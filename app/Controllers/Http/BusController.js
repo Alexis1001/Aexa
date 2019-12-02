@@ -104,6 +104,12 @@ class BusController {
     return response.json({bus});
   }
 
+  async showByName ({ params, request, response,auth }) {
+    const user = await auth.getUser();
+    const data=request.all();
+    const bus=await Bus.findByOrFail('destination',data.destination);;
+    return response.json({bus});
+  }
 
 
 
