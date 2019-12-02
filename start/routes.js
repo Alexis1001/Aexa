@@ -32,7 +32,7 @@ Route.group(() => {
   Route.put('user/bus/update/:id','BusController.update');
   Route.get('user/bus/:id','BusController.show');
   Route.put('user/bus/edit/:id','BusController.updateBusAll');
-  Route.get('user/bus/name','BusController.showByName');
+  Route.post('user/bus/name','BusController.showByName');
 
   
   Route.post('user/history','HistoryController.store');
