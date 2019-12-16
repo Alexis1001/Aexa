@@ -34,8 +34,8 @@ class VentaController {
     const data=request.all();
     const ventas=new Ventas();
     const bus=await Bus.findByOrFail('id',data.bus_id);
-    var total_Seats=bus.totalSeats;
-    var total_Seats_Especial_Free=bus.totalSeatsEspecialFree;
+    var total_Seats=bus.totalSeats; // TOTAL DE ASIENTOS DEL AUTO BUS
+    var total_Seats_Especial_Free=bus.totalSeatsEspecialFree; //  TOTAL DE ASIENTOS LIBRES DEL AUTOBUS
     var today = new Date();
     var day = today.getDate();
     var month= today.getMonth()+1;
@@ -46,12 +46,12 @@ class VentaController {
       return response.json({message:'bus not permited'});
     }
     else{
-      ventas.nameBus=data.nameBus;
-      ventas.occupiedSeats=data.occupiedSeats;
-      ventas.totalSeatsSold=data.totalSeatsSold;
-      ventas.date=date;
-      ventas.typeSeat=data.typeSeat;
-      ventas.bus_id=data.bus_id;
+      ventas.nameBus=data.nameBus;  //NOMBRE DEL AUTOBUS
+      ventas.occupiedSeats=data.occupiedSeats; // ASIENTO OCUPADO
+      ventas.totalSeatsSold=data.totalSeatsSold;// TOTLA DE BOLETOS VENDIDOC
+      ventas.date=date; //FECHA DE LA COMPRA DE BOLETO
+      ventas.typeSeat=data.typeSeat; // ASIENTO LIBRE O ESPECIAL
+      ventas.bus_id=data.bus_id;  // ID DEL AUTOBUS
       if(data.typeSeat=="especial"){
         var total=total_Seats_Especial_Free-data.totalSeatsSold;  
         ventas.specialFreeSeats=total;

@@ -25,6 +25,8 @@ Route.group(() => {
   Route.post('user/login','UserController.login');
   Route.get('user/all','UserController.index');
 
+  Route.post('user/sendEmail','UserController.forgotPassword')
+  Route.post('user/resetPassword','UserController.resetPassword')
   
   Route.get('user/bus/all','BusController.index');
   Route.post('user/bus/add','BusController.create');
